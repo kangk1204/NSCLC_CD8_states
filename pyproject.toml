@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nsclc-tf-switch"
+version = "0.1.0"
+description = "Graph-based scRNA-seq pipeline for T-cell TF switch discovery in NSCLC."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "NSCLC CD8 State Study Contributors" }
+]
+dependencies = [
+  "anndata",
+  "decoupler",
+  "h5py",
+  "matplotlib",
+  "networkx",
+  "numpy",
+  "pandas",
+  "requests",
+  "scikit-learn",
+  "scipy",
+  "seaborn",
+  "torch",
+  "torch-geometric",
+  "typer",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
